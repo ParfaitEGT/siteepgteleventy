@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ title or "Service EPGT" }}</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{{ accueil.titre }}</h1>
+      <h2>{{ accueil.sous_titre }}</h2>
+      <p>{{ accueil.presentation }}</p>
+      <a href="#articles">{{ accueil.texte_bouton }}</a>
+    </header>
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+  </body>
+</html>
