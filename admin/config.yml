@@ -1,6 +1,13 @@
 backend:
   name: git-gateway
   branch: main
+  repo: ParfaitEGT/siteepgteleventy  # ← ton dépôt actuel
+  site_domain: siteepgteleventy.netlify.app
+
+site_url: https://siteepgteleventy.netlify.app
+local_backend: true
+
+locale: 'fr'  # Interface en français
 
 media_folder: "images"
 public_folder: "/images"
