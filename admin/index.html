@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
+    <!-- Script Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Script Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
     <script>
@@ -20,7 +23,7 @@
           }
         });
 
-        // Gestion automatique du lien d'invitation avec token
+        // Gestion automatique du lien d'invitation
         const url = new URL(window.location.href);
         const inviteToken = url.hash.match(/invite_token=([^&]+)/);
         if (inviteToken && inviteToken[1]) {
