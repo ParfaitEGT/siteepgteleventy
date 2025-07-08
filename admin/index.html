@@ -33,5 +33,29 @@
         }
       }
     </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+
+    const url = new URL(window.location.href);
+    const inviteToken = url.hash.match(/invite_token=([^&]+)/);
+    if (inviteToken && inviteToken[1]) {
+      window.netlifyIdentity.acceptInvite({ invite_token: inviteToken[1] })
+        .then(() => {
+          window.location.href = "/admin/";
+        })
+        .catch((err) => console.error("Erreur d’invitation :", err));
+    }
+  }
+      </script>
   </body>
 </html>
