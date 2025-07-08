@@ -20,13 +20,13 @@
           }
         });
 
-        // Gestion automatique du lien d'invitation avec token
+        // Gestion automatique du lien d'invitation et de confirmation
         const url = new URL(window.location.href);
         const inviteToken = url.hash.match(/invite_token=([^&]+)/);
         if (inviteToken && inviteToken[1]) {
           window.netlifyIdentity.acceptInvite({ invite_token: inviteToken[1] })
             .then(() => {
-              console.log("Invitation acceptée. Redirection vers /admin/");
+              console.log("Invitation acceptée, ouverture de l'admin");
               window.location.href = "/admin/";
             })
             .catch((err) => console.error("Erreur d’invitation :", err));
